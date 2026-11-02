@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Águas Nobres | Especialistas em Poços Artesianos</title>
+    <meta name="description" content="Perfuração e manutenção de poços artesianos no Vale do Sinos e Paranhana. Transparência extrema e materiais de primeira linha.">
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-petroleo': '#0B3D5C',
+                        'turquesa': '#27A7A0',
+                        'areia': '#D9C39A',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0B3D5C; }
+        ::-webkit-scrollbar-thumb { background: #27A7A0; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1c7a76; }
+        
+        /* Animações Contínuas */
+        .animate-slow-zoom { animation: slowZoom 20s infinite alternate linear; }
+        @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.15); } }
+        
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        @keyframes blob { 0% { transform: translate(0px, 0px) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } 100% { transform: translate(0px, 0px) scale(1); } }
+        
+        /* Efeito Shine (Brilho no Botão) */
+        .shine-effect { position: relative; overflow: hidden; }
+        .shine-effect::after { content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%; opacity: 0; transform: rotate(30deg); background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%); animation: shine 3s infinite; }
+        @keyframes shine { 0% { left: -60%; opacity: 1; } 20% { left: 150%; opacity: 1; } 100% { left: 150%; opacity: 0; } }
+
+        /* Glassmorphism */
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+        
+        /* Utilitário para ocultar scrollbar no carrossel mobile */
+        .hide-scroll-bar { -ms-overflow-style: none; scrollbar-width: none; }
+        .hide-scroll-bar::-webkit-scrollbar { display: none; }
+
+        /* Faixa Rotativa (Marquee) */
+        .animate-marquee { animation: marquee 25s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+
+        /* Scroll Reveal (Surgimento ao Rolamento) */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active, .reveal-left.active, .reveal-right.active { opacity: 1; transform: translate(0); }
+
+        /* Text Gradient e Line Clamp */
+        .text-gradient { background: linear-gradient(to right, #27A7A0, #4FD1C5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-danger { background: linear-gradient(to right, #EF4444, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Ajuste do Fundo da Hero */
+        .hero-wrapper { position: relative; overflow: hidden; z-index: 1; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: linear-gradient(rgba(11, 61, 92, 0.85), rgba(11, 61, 92, 0.95)), url('https://images.unsplash.com/photo-1543822709-026027376c33?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="bg-white py-2 shadow-sm fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+                <a href="#" class="flex items-center">
+                    <img src="https://i.imgur.com/EXdNazW.png" alt="Águas Nobres Poços Artesianos" class="h-28 lg:h-32 w-auto object-contain">
+                </a>
+            </div>
+            <a href="#contato" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-turquesa text-white font-semibold rounded-lg hover:bg-teal-500 hover:-translate-y-1 hover:shadow-lg transition-all shine-effect">
+                Falar no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Sessão 1: A Promessa (Hero) -->
+    <section class="hero-wrapper text-white pt-40 pb-28 lg:pt-48 lg:pb-40 relative">
+        <div class="hero-bg animate-slow-zoom"></div>
+        
+        <!-- Blobs Dinâmicos de Fundo -->
+        <div class="absolute top-10 left-10 w-64 h-64 bg-turquesa rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-blob"></div>
+        <div class="absolute top-40 right-20 w-72 h-72 bg-areia rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-blob animation-delay-2000"></div>
+
+        <!-- Linhas Geológicas e Freáticas Sutis (MIV Águas Nobres) -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20 z-0" viewBox="0 0 1440 700" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-50,520 C320,490 650,600 1020,480 C1240,410 1380,440 1500,420" stroke="#27A7A0" stroke-width="2" />
+            <path d="M-50,545 C340,515 670,625 1040,505 C1260,435 1400,465 1500,445" stroke="#D9C39A" stroke-width="1.5" />
+            <path d="M-50,570 C360,540 690,650 1060,530 C1280,460 1420,490 1500,470" stroke="#27A7A0" stroke-width="1" stroke-dasharray="8 8" />
+        </svg>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-3/5 reveal-left active">
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6">
+                    Perfuração de <span class="text-gradient">Poço Artesiano</span> no Vale do Sinos & Paranhana
+                </h1>
+                <p class="text-lg lg:text-xl text-gray-200 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    Água de qualidade na sua propriedade com um poço artesiano feito para <span class="text-turquesa font-bold relative inline-block group cursor-pointer">durar a vida toda
+                        <!-- Tooltip Escondido -->
+                        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max px-3 py-2 bg-white text-azul-petroleo text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity shadow-xl pointer-events-none z-20">Feito apenas com materiais de 1ª linha</span>
+                    </span>.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                    <a href="#contato" class="w-full sm:w-auto px-8 py-4 bg-turquesa text-white font-bold rounded-lg text-lg hover:bg-teal-500 transition-all transform hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(39,167,160,0.8)] text-center shine-effect">
+                        Agendar Orçamento Presencial Gratuito
+                    </a>
+                </div>
+                <div class="mt-8 flex items-center justify-center lg:justify-start gap-3 text-sm text-gray-300 bg-white/10 px-5 py-2.5 rounded-full w-max mx-auto lg:mx-0 backdrop-blur-md border border-white/20 shadow-inner">
+                    <!-- Efeito Ping (Ao Vivo/Status) -->
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span class="flex text-yellow-400">★★★★★</span>
+                    <span>Mais de 400 clientes satisfeitos</span>
+                </div>
+            </div>
+            
+            <!-- Hero Image Montage -->
+            <div class="lg:w-2/5 hidden lg:block reveal-right active relative h-[500px] w-full">
+                <div class="relative w-full h-full max-w-[450px] mx-auto">
+                    <!-- Círculo Superior (Máquina) -->
+                    <div class="absolute top-0 right-0 w-[280px] h-[280px] rounded-full border-[5px] border-turquesa shadow-2xl overflow-hidden z-10 group">
+                        <img src="https://i.imgur.com/lAKjglJ.jpg" alt="Perfuração de Poço com Água Jorrando" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <!-- Linha Decorativa Areia -->
+                    <div class="absolute -top-3 -right-3 w-[292px] h-[292px] rounded-full border-[2px] border-areia z-0 pointer-events-none"></div>
+                    <!-- Círculo Inferior (Plantação) -->
+                    <div class="absolute bottom-4 left-8 w-[250px] h-[250px] rounded-full border-[5px] border-turquesa shadow-2xl overflow-hidden z-0 group">
+                        <img src="https://i.imgur.com/5DdgpDJ.jpg" alt="Irrigação e Água Abundante na Plantação" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <!-- Linha Decorativa Turquesa -->
+                    <div class="absolute bottom-1 left-5 w-[262px] h-[262px] rounded-full border-[2px] border-turquesa z-0 pointer-events-none opacity-50"></div>
+                    <!-- Selo -->
+                    <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 bg-white rounded-full w-[120px] h-[120px] flex flex-col items-center justify-center border-[4px] border-areia shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">
+                        <span class="text-4xl font-extrabold text-azul-petroleo leading-none mb-1">14</span>
+                        <span class="text-[11px] font-bold text-azul-petroleo uppercase text-center leading-tight">Anos de<br>Experiência</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faixa Rotativa (Marquee) -->
+    <div class="bg-azul-petroleo border-y border-white/10 overflow-hidden py-2.5 relative flex flex-nowrap w-full">
+        <!-- Grupo Original -->
+        <div class="animate-marquee flex items-center gap-8 min-w-full flex-shrink-0 pr-8">
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Perfuração</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-white font-semibold text-sm uppercase tracking-widest">+ 14 anos de experiência</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Manutenção</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-white font-semibold text-sm uppercase tracking-widest">+ 14 anos de experiência</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Vale dos Sinos & Paranhana</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+        </div>
+        <!-- Grupo Duplicado (Para o loop infinito perfeito) -->
+        <div class="animate-marquee flex items-center gap-8 min-w-full flex-shrink-0 pr-8" aria-hidden="true">
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Perfuração</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-white font-semibold text-sm uppercase tracking-widest">+ 14 anos de experiência</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Manutenção</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-white font-semibold text-sm uppercase tracking-widest">+ 14 anos de experiência</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+            <span class="text-areia font-semibold text-sm uppercase tracking-widest">Vale dos Sinos & Paranhana</span>
+            <span class="text-turquesa font-bold text-base">/</span>
+        </div>
+    </div>
+
+    <!-- Sessão 2: A Dor / O Problema -->
+    <section class="py-24 bg-gray-900 overflow-hidden relative">
+        <!-- Brilho vermelho sutil de fundo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        
+        <div class="container mx-auto px-4 lg:px-8 max-w-5xl text-center relative z-10">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 reveal">
+                Você sabe qual o maior medo na hora da <span class="text-gradient-danger">contratação?</span>
+            </h2>
+            <p class="text-lg text-gray-400 leading-relaxed mb-12 reveal">
+                São 2 principais fatores
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Falta de Transparência -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-lg text-left hover:-translate-y-3 hover:shadow-[0_10px_40px_-10px_rgba(239,68,68,0.3)] transition-all duration-300 reveal-left group">
+                    <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Falta de transparência</h3>
+                    <p class="text-gray-400">Orçamentos confusos e taxas que surgem no meio da obra. Muitos profissionais não explicam os riscos do processo de furação, deixando uma surpresa para você pagar no final.</p>
+                </div>
+                
+                <!-- Materiais de Baixa Qualidade -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-lg text-left hover:-translate-y-3 hover:shadow-[0_10px_40px_-10px_rgba(239,68,68,0.3)] transition-all duration-300 reveal-right group">
+                    <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Materiais de baixa qualidade</h3>
+                    <p class="text-gray-400">Para baratear o custo de materiais, profissionais utilizam tubulações e equipamentos inferiores que acarreta em poço com problemas frequentes e muitas manutenções.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 3: A Solução (O Diferencial Águas Nobres) -->
+    <section class="py-24 bg-[#D9C39A]/10 overflow-hidden border-y border-[#D9C39A]/30 relative">
+        <!-- Linhas de Estratos de Solo e Água Subterrânea (MIV) -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none opacity-25">
+            <svg class="w-full h-12 md:h-16" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,22 Q300,22 450,38 T750,22 T1050,38 T1200,22" stroke="#27A7A0" stroke-width="2" fill="none"/>
+                <path d="M0,34 Q300,34 450,50 T750,34 T1050,50 T1200,34" stroke="#D9C39A" stroke-width="1.8" fill="none"/>
+                <path d="M0,46 Q300,46 450,62 T750,46 T1050,62 T1200,46" stroke="#0B3D5C" stroke-width="1.2" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl lg:text-4xl font-bold text-azul-petroleo">Por que a Águas Nobres é a escolha mais segura?</h2>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-16">
+                <!-- Imagem à Esquerda -->
+                <div class="w-full lg:w-1/2 reveal-left flex justify-center items-center">
+                    <div class="relative w-4/5 sm:w-3/4 lg:w-4/5 max-w-md">
+                        <!-- Detalhe decorativo atrás da imagem -->
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-turquesa rounded-2xl z-0 pointer-events-none opacity-50"></div>
+                        <img src="https://i.imgur.com/RIlSrAA.jpg" alt="Diferencial Águas Nobres" class="w-full h-auto object-cover rounded-2xl shadow-xl relative z-10 hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                </div>
+                
+                <!-- Blocos à Direita -->
+                <div class="w-full lg:w-1/2 flex flex-col gap-6">
+                    <!-- Benefício 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md hover:-translate-x-2 hover:shadow-lg transition-all duration-300 reveal-right group text-left border border-gray-100 flex items-start gap-4">
+                        <div class="w-12 h-12 flex-shrink-0 bg-turquesa text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform mt-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-azul-petroleo mb-2">Transparência Extrema</h3>
+                            <p class="text-gray-600">Única empresa da região que separa o valor da perfuração (mão de obra) dos materiais.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefício 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md hover:-translate-x-2 hover:shadow-lg transition-all duration-300 reveal-right group text-left border border-gray-100 flex items-start gap-4" style="transition-delay: 150ms;">
+                        <div class="w-12 h-12 flex-shrink-0 bg-turquesa text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform mt-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-azul-petroleo mb-2">Materiais de Primeira Linha</h3>
+                            <p class="text-gray-600">Trabalhamos apenas com o que há de melhor no mercado para garantir um poço que dura a vida toda.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefício 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-md hover:-translate-x-2 hover:shadow-lg transition-all duration-300 reveal-right group text-left border border-gray-100 flex items-start gap-4" style="transition-delay: 300ms;">
+                        <div class="w-12 h-12 flex-shrink-0 bg-turquesa text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform mt-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-azul-petroleo mb-2">Especialistas no Solo</h3>
+                            <p class="text-gray-600">Dominamos a perfuração em pedra de areia, pedra ferro, cascalho e saibro no Vale do Sinos e Paranhana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão: Vídeos do Nosso Dia a Dia -->
+    <section class="py-16 md:py-24 bg-white overflow-hidden border-b border-gray-200 relative">
+        <!-- Fio Guia Lateral Turquesa (Inspirado no detalhe vertical do MIV) -->
+        <div class="hidden xl:block absolute left-8 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-turquesa/40 to-transparent pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl text-center relative z-10">
+            <div class="mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl lg:text-4xl font-bold text-azul-petroleo mb-3">
+                    Conhecemos a fundo o solo da nossa região.
+                </h2>
+                <!-- Detalhe sutil das ondas do lençol de água / solo -->
+                <div class="flex justify-center items-center pt-2 opacity-75">
+                    <svg width="140" height="14" viewBox="0 0 140 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 3C25 3 40 10 70 10C100 10 115 3 140 3" stroke="#27A7A0" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M0 8C25 8 40 15 70 15C100 15 115 8 140 8" stroke="#D9C39A" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Vídeos: 1 abaixo do outro no mobile (grid-cols-1), 3 lado a lado no desktop (md:grid-cols-3) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center max-w-sm md:max-w-none mx-auto">
+                <!-- Vídeo 1 -->
+                <div class="w-full max-w-[280px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-turquesa/20 relative group reveal">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="https://i.imgur.com/oSkkraH.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <!-- Vídeo 2 -->
+                <div class="w-full max-w-[280px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-turquesa/20 relative group reveal" style="transition-delay: 150ms;">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="https://i.imgur.com/pokQC8P.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <!-- Vídeo 3 -->
+                <div class="w-full max-w-[280px] aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border-4 border-turquesa/20 relative group reveal" style="transition-delay: 300ms;">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="https://i.imgur.com/KbLm1NC.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            
+            <!-- Botão de Ação abaixo dos vídeos -->
+            <div class="mt-12 text-center reveal">
+                <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 sm:px-10 bg-turquesa text-white font-bold rounded-xl text-lg hover:bg-teal-500 transition-all transform hover:-translate-y-1 hover:shadow-lg shine-effect">
+                    Agendar orçamento presencial
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 4: Como Funciona -->
+    <section class="py-16 md:py-24 bg-azul-petroleo text-white overflow-hidden relative z-0">
+        <!-- Blobs Flutuantes de Fundo -->
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full mix-blend-overlay filter blur-[40px] opacity-10 animate-blob pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-turquesa rounded-full mix-blend-overlay filter blur-[50px] opacity-20 animate-blob animation-delay-2000 pointer-events-none"></div>
+
+        <!-- Ondas de Transição de Camadas Geológicas no Topo (MIV) -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none opacity-20">
+            <svg class="w-full h-12" viewBox="0 0 1200 48" fill="none" preserveAspectRatio="none">
+                <path d="M0 0 Q300 36 600 16 T1200 24" stroke="#27A7A0" stroke-width="2" fill="none"/>
+                <path d="M0 8 Q300 44 600 24 T1200 32" stroke="#D9C39A" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">O caminho é simples para a sua água de poço</h2>
+            </div>
+            
+            <!-- Fluxo: no mobile um abaixo do outro com conectores verticais; no desktop lado a lado com linha horizontal -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 text-center relative max-w-xs md:max-w-none mx-auto">
+                <!-- Linha conectora no desktop estilizada com gradiente turquesa/areia -->
+                <div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-[3px] bg-gradient-to-r from-turquesa via-areia to-turquesa opacity-40 w-[80%] -z-10"></div>
+                
+                <!-- Passo 1 -->
+                <div class="reveal-left group flex flex-col items-center">
+                    <div class="w-16 h-16 bg-turquesa text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-[0_0_20px_rgba(39,167,160,0.4)] group-hover:scale-110 transition-transform">1</div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Contato</h3>
+                    <!-- Conector visual vertical exclusivo no mobile -->
+                    <div class="md:hidden w-0.5 h-6 bg-turquesa/40 my-2"></div>
+                </div>
+                
+                <!-- Passo 2 -->
+                <div class="reveal group flex flex-col items-center" style="transition-delay: 150ms;">
+                    <div class="w-16 h-16 bg-turquesa text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-[0_0_20px_rgba(39,167,160,0.4)] group-hover:scale-110 transition-transform">2</div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Visita Gratuita</h3>
+                    <!-- Conector visual vertical exclusivo no mobile -->
+                    <div class="md:hidden w-0.5 h-6 bg-turquesa/40 my-2"></div>
+                </div>
+                
+                <!-- Passo 3 -->
+                <div class="reveal group flex flex-col items-center" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-turquesa text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-[0_0_20px_rgba(39,167,160,0.4)] group-hover:scale-110 transition-transform">3</div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Orçamento</h3>
+                    <!-- Conector visual vertical exclusivo no mobile -->
+                    <div class="md:hidden w-0.5 h-6 bg-turquesa/40 my-2"></div>
+                </div>
+                
+                <!-- Passo 4 -->
+                <div class="reveal-right group flex flex-col items-center" style="transition-delay: 450ms;">
+                    <div class="w-16 h-16 bg-turquesa text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-[0_0_20px_rgba(39,167,160,0.4)] group-hover:scale-110 transition-transform">4</div>
+                    <h3 class="text-xl font-bold text-white">Perfuração do poço</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão: Depoimentos (Prova Social) -->
+    <section class="py-16 md:py-24 bg-gray-50 overflow-hidden border-t border-gray-200">
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl lg:text-4xl font-bold text-azul-petroleo">O que dizem as pessoas que já confiam em nós.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 reveal-left hover:-translate-y-2 transition-all duration-300">
+                    <svg class="w-10 h-10 text-turquesa/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="text-gray-600 mb-4 relative">
+                        <p class="line-clamp-3 transition-all duration-300 depoimento-texto">Sempre tive receio de fazer um poço devido aos orçamentos que pareciam esconder custos. Com a Águas Nobres foi diferente. Eles me explicaram tudo detalhadamente e separaram o valor do serviço dos materiais. Transparência total!</p>
+                        <button class="text-turquesa font-semibold mt-2 ler-mais-btn">Ler mais</button>
+                    </div>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="https://i.imgur.com/NfTr3AH.jpg" alt="Douglas Silva" class="w-12 h-12 rounded-full object-cover bg-gray-200">
+                        <div>
+                            <h4 class="font-bold text-azul-petroleo">Douglas Silva</h4>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 reveal hover:-translate-y-2 transition-all duration-300" style="transition-delay: 150ms;">
+                    <svg class="w-10 h-10 text-turquesa/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="text-gray-600 mb-4 relative">
+                        <p class="line-clamp-3 transition-all duration-300 depoimento-texto">Foi muito mais do que um serviço prestado, recebi uma verdadeira consultoria. A equipe conhece perfeitamente o solo aqui da região e entregaram um poço com água de excelente qualidade, feito para durar a vida toda.</p>
+                        <button class="text-turquesa font-semibold mt-2 ler-mais-btn">Ler mais</button>
+                    </div>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="https://i.imgur.com/pVXFzpL.jpg" alt="Joviano Branco" class="w-12 h-12 rounded-full object-cover bg-gray-200">
+                        <div>
+                            <h4 class="font-bold text-azul-petroleo">Joviano Branco</h4>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 reveal-right hover:-translate-y-2 transition-all duration-300" style="transition-delay: 300ms;">
+                    <svg class="w-10 h-10 text-turquesa/30 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <div class="text-gray-600 mb-4 relative">
+                        <p class="line-clamp-3 transition-all duration-300 depoimento-texto">Profissionais corretos e que cumprem com a palavra. Explicaram o tipo de rocha que tínhamos na propriedade e fizeram um trabalho impecável, sem enganações. Recomendo de olhos fechados.</p>
+                        <button class="text-turquesa font-semibold mt-2 ler-mais-btn">Ler mais</button>
+                    </div>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="https://i.imgur.com/gsdmVbG.jpg" alt="Luan Orsso" class="w-12 h-12 rounded-full object-cover bg-gray-200">
+                        <div>
+                            <h4 class="font-bold text-azul-petroleo">Luan Orsso</h4>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 5: Fecho e Conversão (CTA Final) -->
+    <section id="contato" class="py-24 bg-azul-petroleo text-white relative overflow-hidden border-t border-white/10">
+        <!-- Efeito de Linhas Geológicas Orgânicas da Marca (Substituindo o círculo genérico) -->
+        <div class="absolute -top-16 -right-16 w-96 h-96 pointer-events-none opacity-20">
+            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 80 C150 20 280 140 380 90" stroke="#27A7A0" stroke-width="3" fill="none"/>
+                <path d="M40 110 C140 50 270 170 370 120" stroke="#D9C39A" stroke-width="2.5" fill="none"/>
+                <path d="M30 140 C130 80 260 200 360 150" stroke="#27A7A0" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
+                <path d="M20 170 C120 110 250 230 350 180" stroke="#D9C39A" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Imagem à Esquerda -->
+                <div class="w-full lg:w-1/2 reveal-left flex justify-center items-center">
+                    <div class="relative w-4/5 sm:w-3/4 lg:w-full max-w-md">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-turquesa rounded-2xl z-0 pointer-events-none opacity-40"></div>
+                        <img src="https://i.imgur.com/3fm3edh.jpg" alt="Equipe Águas Nobres" class="w-full h-auto object-cover rounded-2xl shadow-2xl relative z-10 hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                </div>
+
+                <!-- Conteúdo à Direita -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left reveal-right">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">Pronto para ter sua <span class="text-gradient">Água de Poço</span>?</h2>
+                    <p class="text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed">
+                        Dê o primeiro passo falando diretamente conosco e esclareça as suas dúvidas.
+                    </p>
+                    <a href="https://wa.me/5551999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20orçamento%20presencial%20gratuito." target="_blank" class="inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 bg-turquesa text-white font-bold rounded-xl text-lg sm:text-xl hover:bg-teal-500 transition-all transform hover:-translate-y-2 shadow-[0_10px_40px_-10px_rgba(39,167,160,0.8)] w-full sm:w-auto shine-effect">
+                        <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Falar no WhatsApp e Agendar Visita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-6">
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl flex flex-col items-center justify-center gap-2 text-center">
+            <div class="inline-block">
+                 <img src="https://i.imgur.com/LKMNmJh.png" alt="Águas Nobres Poços Artesianos" class="h-10 w-auto object-contain">
+            </div>
+            
+            <div class="text-xs md:text-sm flex flex-col items-center">
+                <p>19.633.196/0001-80</p>
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Águas Nobres. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interatividade -->
+    <script>
+        // 1. Sticky Header & Glassmorphism ao rolar a página
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('glass');
+                header.classList.remove('bg-white');
+            } else {
+                header.classList.remove('glass');
+                header.classList.add('bg-white');
+            }
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px" 
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+        
+        // 3. Ler mais (Line Clamp) nos Depoimentos
+        const botoesLerMais = document.querySelectorAll('.ler-mais-btn');
+        botoesLerMais.forEach(botao => {
+            botao.addEventListener('click', function() {
+                const texto = this.previousElementSibling;
+                if (texto.classList.contains('line-clamp-3')) {
+                    texto.classList.remove('line-clamp-3');
+                    this.textContent = 'Ver menos';
+                } else {
+                    texto.classList.add('line-clamp-3');
+                    this.textContent = 'Ler mais';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
