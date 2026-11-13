@@ -146,24 +146,24 @@
             </div>
             
             <!-- Hero Image Montage -->
-            <div class="lg:w-2/5 hidden lg:block reveal-right active relative h-[500px] w-full">
-                <div class="relative w-full h-full max-w-[450px] mx-auto">
+            <div class="w-full lg:w-2/5 mt-16 lg:mt-0 reveal-right active relative h-[380px] lg:h-[500px]">
+                <div class="relative w-full h-full max-w-[320px] lg:max-w-[450px] mx-auto">
                     <!-- Círculo Superior (Máquina) -->
-                    <div class="absolute top-0 right-0 w-[280px] h-[280px] rounded-full border-[5px] border-turquesa shadow-2xl overflow-hidden z-10 group">
+                    <div class="absolute top-0 right-0 w-[220px] h-[220px] lg:w-[280px] lg:h-[280px] rounded-full border-[4px] lg:border-[5px] border-turquesa shadow-2xl overflow-hidden z-10 group">
                         <img src="https://i.imgur.com/lAKjglJ.jpg" alt="Perfuração de Poço com Água Jorrando" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <!-- Linha Decorativa Areia -->
-                    <div class="absolute -top-3 -right-3 w-[292px] h-[292px] rounded-full border-[2px] border-areia z-0 pointer-events-none"></div>
+                    <div class="absolute -top-2 -right-2 w-[232px] h-[232px] lg:-top-3 lg:-right-3 lg:w-[292px] lg:h-[292px] rounded-full border-[2px] border-areia z-0 pointer-events-none"></div>
                     <!-- Círculo Inferior (Plantação) -->
-                    <div class="absolute bottom-4 left-8 w-[250px] h-[250px] rounded-full border-[5px] border-turquesa shadow-2xl overflow-hidden z-0 group">
+                    <div class="absolute bottom-10 left-4 w-[180px] h-[180px] lg:bottom-4 lg:left-8 lg:w-[250px] lg:h-[250px] rounded-full border-[4px] lg:border-[5px] border-turquesa shadow-2xl overflow-hidden z-0 group">
                         <img src="https://i.imgur.com/5DdgpDJ.jpg" alt="Irrigação e Água Abundante na Plantação" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <!-- Linha Decorativa Turquesa -->
-                    <div class="absolute bottom-1 left-5 w-[262px] h-[262px] rounded-full border-[2px] border-turquesa z-0 pointer-events-none opacity-50"></div>
+                    <div class="absolute bottom-8 left-2 w-[190px] h-[190px] lg:bottom-1 lg:left-5 lg:w-[262px] lg:h-[262px] rounded-full border-[2px] border-turquesa z-0 pointer-events-none opacity-50"></div>
                     <!-- Selo -->
-                    <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 bg-white rounded-full w-[120px] h-[120px] flex flex-col items-center justify-center border-[4px] border-areia shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">
-                        <span class="text-4xl font-extrabold text-azul-petroleo leading-none mb-1">14</span>
-                        <span class="text-[11px] font-bold text-azul-petroleo uppercase text-center leading-tight">Anos de<br>Experiência</span>
+                    <div class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-2 lg:translate-x-0 z-20 bg-white rounded-full w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] flex flex-col items-center justify-center border-[3px] lg:border-[4px] border-areia shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">
+                        <span class="text-3xl lg:text-4xl font-extrabold text-azul-petroleo leading-none mb-1">14</span>
+                        <span class="text-[9px] lg:text-[11px] font-bold text-azul-petroleo uppercase text-center leading-tight">Anos de<br>Experiência</span>
                     </div>
                 </div>
             </div>
@@ -509,8 +509,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-6">
-        <div class="container mx-auto px-4 lg:px-8 max-w-6xl flex flex-col items-center justify-center gap-2 text-center">
+    <footer class="bg-gray-900 text-gray-400 py-6 relative overflow-hidden">
+        <!-- Linha MIV Rodapé (Detalhe extra) -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none opacity-10">
+            <svg class="w-full h-4 md:h-6" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none">
+                <path d="M0,12 Q300,12 450,18 T750,12 T1050,18 T1200,12" stroke="#27A7A0" stroke-width="1.5" fill="none"/>
+                <path d="M0,18 Q300,18 450,24 T750,18 T1050,24 T1200,18" stroke="#D9C39A" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 lg:px-8 max-w-6xl flex flex-col items-center justify-center gap-2 text-center relative z-10">
             <div class="inline-block">
                  <img src="https://i.imgur.com/LKMNmJh.png" alt="Águas Nobres Poços Artesianos" class="h-10 w-auto object-contain">
             </div>
